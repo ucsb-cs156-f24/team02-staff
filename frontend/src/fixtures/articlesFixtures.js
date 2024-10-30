@@ -10,7 +10,7 @@ const articlesFixtures = {
   threeArticles: [
     {
       id: 2,
-      title: "Test Articles",
+      title: "Test Articles 2",
       url: "https://www.google.com",
       explanation: "1",
       email: "me@ucsb.edu",
@@ -18,7 +18,7 @@ const articlesFixtures = {
     },
     {
       id: 3,
-      title: "Test Articles",
+      title: "Test Articles 3",
       url: "https://www.images.google.com",
       explanation: "1",
       email: "me@ucsb.edu",
