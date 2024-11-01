@@ -23,4 +23,4 @@ repo_name: "TBD"
 repo: ucsb-cs156-f24/team02-staff
 owner: ucsb-cs156-f24
 repo_name: team02-staff
-pull_requests: [{"author":{"id":"U_kgDOB3Dokw","is_bot":false,"login":"jenil-prajapati","name":""},"headRefName":"Jenil-RecommendationRequests","number":66,"title":"jp - Copy existing CRUD API RecommendationRequest from team02","url":"https://github.com/ucsb-cs156-f24/team02-staff/pull/66"},{"author":{"id":"U_kgDOBnFWcA","is_bot":false,"login":"raysujf","name":""},"headRefName":"Hongrui-UCSBOrganization","number":63,"title":"hs - Copying backend CRUD API for UCSBOrganization from team01","url":"https://github.com/ucsb-cs156-f24/team02-staff/pull/63"}]
+pull_requests: [{"author":{"id":"U_kgDOB3Dokw","is_bot":false,"login":"jenil-prajapati","name":""},"headRefName":"Jenil-RecommendationRequests","number":66,"title":"jp - Copy existing CRUD API RecommendationRequest from team02","url":"https://github.com/ucsb-cs156-f24/team02-staff/pull/66"}]
