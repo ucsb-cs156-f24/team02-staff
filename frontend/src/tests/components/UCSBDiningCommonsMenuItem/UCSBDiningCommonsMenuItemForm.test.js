@@ -2,7 +2,7 @@ import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router-dom";
 
 import UCSBDiningCommonsMenuItemForm from "main/components/UCSBDiningCommonsMenuItem/UCSBDiningCommonsMenuItemForm";
-import { UCSBDiningCommonsMenuItemFixtures } from "fixtures/ucsbDiningCommonsMenuItemFixtures";
+import { ucsbDiningCommonsMenuItemFixtures } from "fixtures/ucsbDiningCommonsMenuItemFixtures";
 
 import { QueryClient, QueryClientProvider } from "react-query";
 
@@ -16,7 +16,7 @@ jest.mock("react-router-dom", () => ({
 describe("UCSBDiningCommonsMenuItemForm tests", () => {
   const queryClient = new QueryClient();
 
-  const expectedHeaders = ["Dining Commons Code", "Name", "Description"];
+  const expectedHeaders = ["DiningCommonsCode", "Name", "Station"];
   const testId = "UCSBDiningCommonsMenuItemForm";
 
   test("renders correctly with no initialContents", async () => {
@@ -29,6 +29,15 @@ describe("UCSBDiningCommonsMenuItemForm tests", () => {
     );
 
     expect(await screen.findByText(/Create/)).toBeInTheDocument();
+    expect(
+      screen.getByTestId("UCSBDiningCommonsMenuItemForm-name"),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByTestId("UCSBDiningCommonsMenuItemForm-station"),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByTestId("UCSBDiningCommonsMenuItemForm-submit"),
+    ).toBeInTheDocument();
 
     expectedHeaders.forEach((headerText) => {
       const header = screen.getByText(headerText);
@@ -40,7 +49,11 @@ describe("UCSBDiningCommonsMenuItemForm tests", () => {
     render(
       <QueryClientProvider client={queryClient}>
         <Router>
-          <UCSBDiningCommonsMenuItemForm initialContents={UCSBDiningCommonsMenuItemFixtures.oneUCSBDiningCommonsMenuItem} />
+          <UCSBDiningCommonsMenuItemForm
+            initialContents={
+              ucsbDiningCommonsMenuItemFixtures.oneUCSBDiningCommonsMenuItem
+            }
+          />
         </Router>
       </QueryClientProvider>,
     );
@@ -85,12 +98,16 @@ describe("UCSBDiningCommonsMenuItemForm tests", () => {
     const submitButton = screen.getByText(/Create/);
     fireEvent.click(submitButton);
 
-    await screen.findByText(/Dining Commons Code is required/);
+    await screen.findByText(/DiningCommonsCode is required/);
     expect(screen.getByText(/Name is required/)).toBeInTheDocument();
     expect(screen.getByText(/Station is required/)).toBeInTheDocument();
 
-    const nameInput = screen.getByTestId(`${testId}-diningCommonsCode`);
-    fireEvent.change(nameInput, { target: { value: "a".repeat(31) } });
+    const diningCommonsCodeInput = screen.getByTestId(
+      `${testId}-diningCommonsCode`,
+    );
+    fireEvent.change(diningCommonsCodeInput, {
+      target: { value: "a".repeat(31) },
+    });
     fireEvent.click(submitButton);
 
     await waitFor(() => {

@@ -36,14 +36,14 @@ function UCSBDiningCommonsMenuItemForm({
       )}
 
       <Form.Group className="mb-3">
-        <Form.Label htmlFor="diningCommonsCode">Dining Commons Code</Form.Label>
+        <Form.Label htmlFor="diningCommonsCode">DiningCommonsCode</Form.Label>
         <Form.Control
           data-testid={testIdPrefix + "-diningCommonsCode"}
           id="diningCommonsCode"
           type="text"
           isInvalid={Boolean(errors.diningCommonsCode)}
           {...register("diningCommonsCode", {
-            required: "Dining Commons Code is required.",
+            required: "DiningCommonsCode is required.",
             maxLength: {
               value: 30,
               message: "Max length 30 characters",
@@ -51,12 +51,12 @@ function UCSBDiningCommonsMenuItemForm({
           })}
         />
         <Form.Control.Feedback type="invalid">
-          {errors.name?.message}
+          {errors.diningCommonsCode?.message}
         </Form.Control.Feedback>
       </Form.Group>
 
       <Form.Group className="mb-3">
-        <Form.Label htmlFor="name">name</Form.Label>
+        <Form.Label htmlFor="name">Name</Form.Label>
         <Form.Control
           data-testid={testIdPrefix + "-name"}
           id="name"
@@ -67,12 +67,12 @@ function UCSBDiningCommonsMenuItemForm({
           })}
         />
         <Form.Control.Feedback type="invalid">
-          {errors.description?.message}
+          {errors.name?.message}
         </Form.Control.Feedback>
       </Form.Group>
 
       <Form.Group className="mb-3">
-        <Form.Label htmlFor="station">station</Form.Label>
+        <Form.Label htmlFor="station">Station</Form.Label>
         <Form.Control
           data-testid={testIdPrefix + "-station"}
           id="station"
@@ -83,7 +83,7 @@ function UCSBDiningCommonsMenuItemForm({
           })}
         />
         <Form.Control.Feedback type="invalid">
-          {errors.description?.message}
+          {errors.station?.message}
         </Form.Control.Feedback>
       </Form.Group>
 
